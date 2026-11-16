@@ -2,8 +2,8 @@
   "name": "@alammobility/web",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "worker:build": "opennextjs-cloudflare build",
