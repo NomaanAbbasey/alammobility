@@ -13,5 +13,7 @@
   "observability": {
     "enabled": true
   },
-  "previews": {}
+  "previews": {},
+  "workers_dev": true,
+  "preview_urls": true
 }
