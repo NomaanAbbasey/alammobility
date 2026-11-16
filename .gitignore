@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.open-next/
+.wrangler/
+.turbo/
+.env*
+.dev.vars*
+*.tsbuildinfo
+.cursor/skills/
+next-env.d.ts
