@@ -13,3 +13,6 @@ Connect this GitHub repository to the `alammobility` Worker. Use the repository 
 - Build command: `pnpm --filter @alammobility/web worker:build`
 - Deploy command: `pnpm --filter @alammobility/web exec opennextjs-cloudflare deploy`
 - Preview command: `pnpm --filter @alammobility/web exec wrangler preview`
+
+This branch verifies the Cloudflare Workers preview pipeline.
+
