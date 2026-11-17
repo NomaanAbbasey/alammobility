@@ -16,7 +16,9 @@
     "react-dom": "19.3.1",
     "@opennextjs/cloudflare": "^1.20.14",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "@alammobility/ui": "workspace:*",
+    "geist": "^1.4.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

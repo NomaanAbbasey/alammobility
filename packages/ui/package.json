@@ -1,0 +1,13 @@
+{
+  "name": "@alammobility/ui",
+  "private": true,
+  "exports": {
+    "./components": "./components/index.ts"
+  },
+  "peerDependencies": {
+    "react": "^19"
+  },
+  "devDependencies": {
+    "@types/react": "^19"
+  }
+}
