@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { ActionLink, Button } from "./primitives";
-import { Disclosure } from "./disclosure";
 import { Pin } from "./address-field";
 
-export function BookingFrame({ title, progress, onBack, children, aside, busy }: { title: string; progress?: string; onBack?: () => void; children: ReactNode; aside?: ReactNode; busy?: boolean }) {
+export function BookingFrame({ title, progress, onBack, children, aside, busy, showMobileAside }: { title: string; progress?: string; onBack?: () => void; children: ReactNode; aside?: ReactNode; busy?: boolean; showMobileAside?: boolean }) {
   return <main className={`booking shell${aside ? " booking-with-aside" : ""}`} id="main">
     <section className="booking-panel">
       <div className="booking-nav">
@@ -13,7 +12,7 @@ export function BookingFrame({ title, progress, onBack, children, aside, busy }:
       <h1 id="booking-title" tabIndex={-1}>{title}</h1>
       {children}
     </section>
-    {aside && <aside className="booking-aside" aria-label="Trip route">{aside}</aside>}
+    {aside && <aside className="booking-aside" data-mobile-visible={showMobileAside} aria-label="Trip route">{aside}</aside>}
   </main>;
 }
 
@@ -36,13 +35,18 @@ export function RouteStops({ pickup, destination }: { pickup: ReactNode; destina
 }
 
 export function RoutePreview({ pickup, destination }: { pickup: string; destination: string }) {
-  const map = <div className="sample-map" role="img" aria-label="Illustrative route connecting the pickup and destination">
-    <span className="map-marker map-start"><Pin /></span><span className="map-route" /><span className="map-marker map-end"><Pin /></span>
-  </div>;
-  return <div className="route-preview">
-    <h2>Route preview</h2>
-    <RouteStops pickup={<><strong>Pickup</strong>{pickup}</>} destination={<><strong>Destination</strong>{destination}</>} />
-    <div className="desktop-map">{map}</div>
-    <div className="mobile-map"><Disclosure title="View sample map">{map}</Disclosure></div>
-  </div>;
+  return <figure className="route-preview">
+    <div className="sample-map" aria-hidden="true">
+      {pickup && <span className="map-marker map-start"><Pin /></span>}
+      {pickup && destination && <span className="map-route" />}
+      {destination && <span className="map-marker map-end"><Pin /></span>}
+    </div>
+    <figcaption>
+      <h2>Sample route map</h2>
+      {pickup || destination ? <RouteStops
+        pickup={<><strong>Pickup</strong>{pickup || "Choose a pickup address"}</>}
+        destination={<><strong>Destination</strong>{destination || "Choose a destination"}</>}
+      /> : <p>Your selected stops will appear here.</p>}
+    </figcaption>
+  </figure>;
 }

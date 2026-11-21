@@ -14,7 +14,7 @@ export function SiteFooter({ name, facts = [] }: { name: string; facts?: readonl
   return <footer className="site-footer shell"><a href="/" className="wordmark">{name}</a>{facts.length > 0 && <ul aria-label="Service facts">{facts.map(fact => <li key={fact}>{fact}</li>)}</ul>}</footer>;
 }
 
-export function Hero({ eyebrow, title, description, bookingHref, phoneHref }: { eyebrow: string; title: string; description: string; bookingHref: string; phoneHref?: string }) {
+export function Hero({ eyebrow, title, description, bookingHref, phoneHref, phoneLabel = "Call to book" }: { eyebrow: string; title: string; description: string; bookingHref: string; phoneHref?: string; phoneLabel?: string }) {
   return <section className="hero shell" aria-labelledby="hero-title">
     <div className="hero-copy">
       <p className="eyebrow">{eyebrow}</p>
@@ -22,7 +22,7 @@ export function Hero({ eyebrow, title, description, bookingHref, phoneHref }: { 
       <p className="hero-description">{description}</p>
       <div className="hero-actions">
         <ActionLink href={bookingHref}>Book a ride</ActionLink>
-        <ActionLink variant="quiet" href={phoneHref ?? "#phone-booking"}>Call to book</ActionLink>
+        <ActionLink variant="quiet" href={phoneHref ?? "#phone-booking"}>{phoneLabel}</ActionLink>
       </div>
     </div>
   </section>;

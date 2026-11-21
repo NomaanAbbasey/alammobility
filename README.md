@@ -14,4 +14,4 @@ Connect this GitHub repository to the `alammobility` Worker. Use the repository 
 - Deploy command: `pnpm --filter @alammobility/web exec opennextjs-cloudflare deploy`
 - Preview command: `pnpm --filter @alammobility/web exec wrangler preview`
 
-Set NEXT_PUBLIC_BOOKING_PHONE to the published booking number to enable tap-to-call. The web booking flow is a browser-only demo and uses an illustrative route.
+Set `NEXT_PUBLIC_BOOKING_PHONE` to the published booking number to enable tap-to-call. The contact page displays that number and the email address in `NEXT_PUBLIC_CONTACT_EMAIL` when configured. The web booking flow is a browser-only demo and uses an illustrative route.
